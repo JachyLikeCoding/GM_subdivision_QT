@@ -30,6 +30,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <LibraryPath>D:\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\opencv\build\include\opencv2;D:\opencv\build\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -67,6 +69,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -88,17 +91,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataStructure.cpp" />
+    <ClCompile Include="display.cpp" />
     <ClCompile Include="GM_Task_ZC.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="myOpenGL.cpp" />
+    <ClCompile Include="ObjLoader.cpp" />
+    <ClCompile Include="processor.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="GM_Task_ZC.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="GM_Task_ZC.ui" />
+    <QtUic Include="UserHelpDialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="GM_Task_ZC.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic.h" />
+    <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="display.h" />
+    <ClInclude Include="geometry.h" />
+    <ClInclude Include="x64\Debug\uic\ui_GM_Task_ZC.h" />
+    <QtMoc Include="myOpenGL.h" />
+    <ClInclude Include="ObjLoader.h" />
+    <ClInclude Include="processor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
